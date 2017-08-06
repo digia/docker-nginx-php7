@@ -55,8 +55,6 @@ RUN apt-get install -y \
   php7.0-zip \
   supervisor
 
-RUN systemctl stop nginx  && systemctl stop php-fpm
-
 # Confirgure nginx
 RUN ln -sf /dev/stdout /var/log/nginx/access.log \
   && ln -sf /dev/stderr /var/log/nginx/error.log
