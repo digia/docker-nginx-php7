@@ -67,3 +67,5 @@ RUN apt-get autoclean && apt-get -y autoremove
 
 VOLUME ["/var/www"]
 EXPOSE 80
+
+CMD ["/var/www/docker-entrypoint.sh"]

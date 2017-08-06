@@ -14,7 +14,7 @@ echo "error_reporting = $PHP_ERROR_REPORTING" >> /etc/php/7.0/fpm/php.ini
 
 # Configure nginx
 echo "daemon off;" >> /etc/nginx/nginx.conf
-cat <<'EOF' >> /etc/nginx/sites-available/default
+cat <<'EOF' > /etc/nginx/sites-available/default
 server {
     listen 80 default_server;
     listen [::]:80 default_server;
@@ -37,7 +37,7 @@ server {
 EOF
 
 # Configure supervisor
-RUN cat <<'EOF' >> /etc/supervisor/conf.d/supervisord.conf
+cat <<'EOF' > /etc/supervisor/conf.d/supervisord.conf
 [supervisord]
 nodaemon=true
 
@@ -49,4 +49,4 @@ command=/usr/sbin/nginx
 EOF
 
 # Use supervisor to monitor FPM and nginx
-/usr/bin/supervisord
+supervisord
