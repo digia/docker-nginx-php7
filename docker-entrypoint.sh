@@ -43,9 +43,17 @@ nodaemon=true
 
 [program:php-fpm]
 command=/usr/sbin/php-fpm7.0
+stdout_logfile=/dev/stdout
+stdout_logfile_maxbytes=0
+stderr_logfile=/dev/stderr
+stderr_logfile_maxbytes=0
 
 [program:nginx]
 command=/usr/sbin/nginx
+stdout_logfile=/dev/stdout
+stdout_logfile_maxbytes=0
+stderr_logfile=/dev/stderr
+stderr_logfile_maxbytes=0
 EOF
 
 # Use supervisor to monitor FPM and nginx
